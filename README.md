@@ -8,5 +8,6 @@
   5、将指标映射出分组和指标。
 选择浙江省统计年鉴为起始，因为该统计年鉴为网页格式，而不是图片。
 浙江省2015年统计年鉴地址：http://www.zj.stats.gov.cn/tjsj/tjnj/DesktopModules/Reports/12.%E6%B5%99%E6%B1%9F%E7%BB%9F%E8%AE%A1%E5%B9%B4%E9%89%B42015/indexch.htm
-选择工业和能源的7-1表作为起始。
+选择工业和能源的7-1表作为起始，地址为：
+http://www.zj.stats.gov.cn/tjsj/tjnj/DesktopModules/Reports/12.%E6%B5%99%E6%B1%9F%E7%BB%9F%E8%AE%A1%E5%B9%B4%E9%89%B42015/indexch.htm
 另外，各省统计年鉴多提供excel文件形式，下一步用scrapy获取年鉴信息后，整理excel的下载链接，并下载文件。
