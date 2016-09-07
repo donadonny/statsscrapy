@@ -11,6 +11,7 @@ import scrapy
 class StatscrapyItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
+    dataNum = scrapy.Field(serializer=str)
     #地区来源
     areaSource = scrapy.Field()
     #数据来源

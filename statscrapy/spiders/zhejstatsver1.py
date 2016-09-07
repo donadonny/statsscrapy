@@ -14,6 +14,7 @@ class zhejver1(scrapy.Spider):
 
     def parse(self,response):
         item = StatscrapyItem()
+        item['dataNum'] = "u'00001'"
         item['areaSource'] = "浙江省"
         item['dataSource'] = "工业进度数据"
         item['dataTime'] = "2016年2月"
