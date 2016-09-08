@@ -24,3 +24,5 @@ class StatscrapyItem(scrapy.Item):
     dataContent = scrapy.Field()
     #计量单位
     dataUnit = scrapy.Field()
+
+    dataunit = scrapy.Field()
