@@ -26,3 +26,12 @@ class StatscrapyItem(scrapy.Item):
     dataUnit = scrapy.Field()
 
     dataunit = scrapy.Field()
+
+#记录指标树
+class ZbTtem(scrapy.Item):
+    dbcode = scrapy.Field()
+    id = scrapy.Field()
+    isParent = scrapy.Field()
+    name = scrapy.Field()
+    pid = scrapy.Field()
+    wdcode = scrapy.Field()
