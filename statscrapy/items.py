@@ -36,3 +36,4 @@ class ZbTtem(scrapy.Item):
     pid = scrapy.Field()
     wdcode = scrapy.Field()
     urlnext = scrapy.Field()
+    data = scrapy.Field()

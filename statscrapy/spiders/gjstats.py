@@ -12,6 +12,8 @@ class GjstatsSpider(scrapy.Spider):
     allowed_domains = ["data.stats.gov.cn"]
     start_urls = (
         'http://data.stats.gov.cn/easyquery.htm?id=&dbcode=hgjd&wdcode=zb&m=getTree',
+        'http://data.stats.gov.cn/easyquery.htm?id=&dbcode=hgnd&wdcode=zb&m=getTree',
+        'http://data.stats.gov.cn/easyquery.htm?id=&dbcode=hgyd&wdcode=zb&m=getTree',
     )
 
     def parse(self, response):
@@ -28,10 +30,11 @@ class GjstatsSpider(scrapy.Spider):
             zb['wdcode'] = zbfl['wdcode']
 
             if zb['isParent']:
-                zb['urlnext'] = 'http://data.stats.gov.cn/easyquery.htm?id=' +zb['id']+ '&dbcode=hgjd&wdcode=zb&m=getTree'
+                zb['urlnext'] = 'http://data.stats.gov.cn/easyquery.htm?id=' +zb['id']+ '&dbcode='+ zb['dbcode'] +'&wdcode=zb&m=getTree'
                 yield Request(zb['urlnext'],callback=self.parse_item)
             else:
-                zb['urlnext'] = ''
+                zb['urlnext'] = 'http://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode='+ zb['dbcode'] +'&rowcode='+ zb['wdcode']+'&colcode=sj&wds=[]&dfwds=[{"wdcode":"zb","valuecode":"'+zb['id']+'"},{"wdcode":"sj","valuecode":"LAST2000"}]&k1=1474175295353'
+                yield Request(zb['urlnext'], callback=self.parse_table)
             yield zb
 
     def parse_item(self, response):
@@ -50,10 +53,15 @@ class GjstatsSpider(scrapy.Spider):
                 zb['urlnext'] = 'http://data.stats.gov.cn/easyquery.htm?id=' + zb['id'] + '&dbcode=hgjd&wdcode=zb&m=getTree'
                 yield Request(zb['urlnext'], callback=self.parse_item)
             else:
-                zb['urlnext'] = ''
+                zb['urlnext'] = 'http://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode='+ zb['dbcode'] +'&rowcode='+ zb['wdcode']+'&colcode=sj&wds=[]&dfwds=[{"wdcode":"zb","valuecode":"'+zb['id']+'"},{"wdcode":"sj","valuecode":"LAST2000"}]&k1=1474175295353'
+                yield Request(zb['urlnext'], callback=self.parse_table)
             yield zb
 
-    #def parse_table(self,response):
+    def parse_table(self,response):
+        zb = ZbTtem()
+        data = json.loads(response.body_as_unicode())
+        zb['data'] = data['returndata']
+        yield zb
 
 
 
