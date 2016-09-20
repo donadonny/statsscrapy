@@ -4,29 +4,5 @@
     <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
     <schema name="" catalog=""/>
-    <table name="COMPANY" schema="" catalog="" type="TABLE">
-      <column name="ID" sqlType="INT" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="NAME" sqlType="TEXT" precision="0" scale="-1" nullable="false" jdbcType="12"/>
-      <column name="AGE" sqlType="INT" precision="0" scale="-1" nullable="false" jdbcType="4"/>
-      <column name="ADDRESS" sqlType="CHAR(50)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="SALARY" sqlType="REAL" precision="0" scale="-1" nullable="true" jdbcType="6"/>
-      <primary-key columns="id"/>
-    </table>
-    <table name="bmsm" schema="" catalog="" type="TABLE">
-      <column name="table_name" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="table_col" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="comments" sqlType="VARCHAR2(2000)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-    </table>
-    <table name="zbfl" schema="" catalog="" type="TABLE">
-      <column name="uid" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="name" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="id" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="isParent" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="pid" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="dbcode" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="wdcode" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <column name="url" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
-      <primary-key columns="uid"/>
-    </table>
   </data-source>
 </component>
