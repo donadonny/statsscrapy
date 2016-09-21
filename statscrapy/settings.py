@@ -104,12 +104,12 @@ CONCURRENT_REQUESTS_PER_IP = 0
 
 #
 #
-ITEM_PIPELINES = {'statscrapy.pipelines.StatscrapyPipeline':800}
+ITEM_PIPELINES = {'statscrapy.pipelines.StatscrapyPipeline':100}
 #
 MONGODB_SERVER = "localhost"
 MONGODB_PORT = 27017
-MONGODB_DB = "stats"
-MONGODB_COLLECTION = "zbfl"
+#MONGODB_DB = "stats"
+#MONGODB_COLLECTION = "zbfl"
 
 COOKIES_ENABLED=False
 DOWNLOAD_DELAY=3

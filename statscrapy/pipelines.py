@@ -12,9 +12,7 @@ from scrapy import log
 
 
 class StatscrapyPipeline(object):
-
     collection_name = 'zbfl'
-
     def __init__(self, mongo_uri, mongo_db):
         self.mongo_uri = mongo_uri
         self.mongo_db = mongo_db
@@ -30,9 +28,23 @@ class StatscrapyPipeline(object):
         self.client = pymongo.MongoClient(self.mongo_uri)
         self.db = self.client[self.mongo_db]
 
-    def close_spider(self, spider):
-        self.client.close()
+
 
     def process_item(self, item, spider):
+        if spider.name == 'csnd':
+            self.collection_name='csnd'
+        elif spider.name =='csyd':
+            self.collection_name ='csyd'
+        elif spider.name == 'fsjd':
+            self.collection_name = 'fsjd'
+        elif spider.name == 'fsnd':
+            self.collection_name = 'fsnd'
+        elif spider.name == 'fsyd':
+            self.collection_name = 'fsyd'
+        elif spider.name == 'gjstats':
+            self.collection_name = 'zbfl'
         self.db[self.collection_name].insert(dict(item))
         return item
+
+    def close_spider(self, spider):
+        self.client.close()

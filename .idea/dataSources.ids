@@ -4,5 +4,41 @@
     <database-info product="SQLite" version="3.8.11" jdbc-version="2.1" driver-name="SQLiteJDBC" driver-version="native"/>
     <case-sensitivity plain-identifiers="mixed" quoted-identifiers="mixed"/>
     <schema name="" catalog=""/>
+    <table name="COMPANY" schema="" catalog="" type="TABLE"/>
+    <table name="bmsm" schema="" catalog="" type="TABLE">
+      <column name="table_name" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="table_col" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="comments" sqlType="VARCHAR2(2000)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+    </table>
+    <table name="zb" schema="" catalog="" type="TABLE">
+      <column name="uid" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="code" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR2(2000)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="cname" sqlType="VARCHAR2(2000)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="exp" sqlType="VARCHAR2(2000)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="unit" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <primary-key columns="uid"/>
+    </table>
+    <table name="zbfl" schema="" catalog="" type="TABLE">
+      <column name="uid" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="name" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="id" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="isParent" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="pid" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="dbcode" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="wdcode" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="url" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <primary-key columns="uid"/>
+    </table>
+    <table name="zbsj" schema="" catalog="" type="TABLE">
+      <column name="zbcode" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="sj" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="data" sqlType="NUMERIC" precision="0" scale="-1" nullable="true" jdbcType="6"/>
+      <column name="doccount" sqlType="INT" precision="0" scale="-1" nullable="true" jdbcType="4"/>
+      <column name="strdata" sqlType="NUMERIC" precision="0" scale="-1" nullable="true" jdbcType="6"/>
+      <column name="dq" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <column name="uid" sqlType="VARCHAR2(200)" precision="0" scale="-1" nullable="true" jdbcType="12"/>
+      <index name="uk_t1" unique="true" columns="zbcode,dq,sj"/>
+    </table>
   </data-source>
 </component>

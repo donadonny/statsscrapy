@@ -7,8 +7,12 @@ from pymongo import MongoClient
 client = MongoClient('localhost', 27017)
 db = client.items
 zbfl = db.zbfl
-sjyss = zbfl.find({"data":{"$exists":"true"}})
-for sjys in sjyss:
+#在find函数中设置不会超时
+#sjyss = zbfl.find({"data":{"$exists":"true"}})
+#一定要在使用完之后释放连接，不然会一直占用系统资源
+
+for sjys in zbfl.find({"data":{"$exists":"true"}}).batch_size(10).max_time_ms(200):
+    uid = str(sjys['_id'])
     for sj in sjys['data']['datanodes']:
         data = sj['data']['data']
         doccount = sj['data']['dotcount']
@@ -18,8 +22,13 @@ for sjys in sjyss:
         sj = sj['wds'][1]['valuecode']
         dq = "全国"
         if hasdata:
-            conn.execute("INSERT INTO zbsj(zbcode, sj, data, doccount, strdata, dq) VALUES (?,?,?,?,?,?)",(zbcode, sj, data, doccount, strdata, dq))
-            conn.commit()
+            try:
+                conn.execute("INSERT INTO zbsj(zbcode, sj, data, doccount, strdata, dq,uid) VALUES (?,?,?,?,?,?,?)",(zbcode, sj, data, doccount, strdata, dq,uid))
+                conn.commit()
+                client.close()
+            except:
+                continue
+
         else:
-            pass
+            client.close()
 conn.close()
