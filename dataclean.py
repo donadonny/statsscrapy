@@ -1,4 +1,4 @@
-"""本程序的功能将mongodb中爬取的原始数据，清洗整理成结构化数据，并存储到sqlit中，清洗指标分类"""
+"""本程序的功能将mongodb中爬取的原始数据，清洗整理成结构化数据，并存储到sqlit中，清洗指标分类，后修改为将数据清洗后返回存储到mongodb中"""
 import pymongo
 import json
 from pymongo import MongoClient
@@ -32,8 +32,8 @@ def zbclean():
     except:
         indi = pymongo.create_collection('indi')
     for zb in zbfl.find({"data":{"$exists":"true"}}):
-        post = zb['data']['wdnodes'][0]['nodes'][0]
-        stats.indi.insert_one(post)
+        post = zb['data']['wdnodes'][0]['nodes']
+        stats.indi.insert_many(post)
 #     uid = str(zb['_id'])
 #     code = zb['data']['wdnodes'][0]['nodes'][0]['code']
 #     name = zb['data']['wdnodes'][0]['nodes'][0]['name']
@@ -73,8 +73,8 @@ def zbdataclean():
                     # conn.execute("INSERT INTO zbsj(zbcode, sj, data, doccount, strdata, dq,uid) VALUES (?,?,?,?,?,?,?)",(zbcode, sj, data, doccount, strdata, dq,uid))
                     # conn.commit()
                     # client.close()
-            else:
-                 continue
+            # else:
+            #      continue
     #             client.close()
     # conn.close()
 

@@ -32,3 +32,13 @@ http://data.stats.gov.cn/easyquery.htm?m=QueryData&dbcode=hgnd&rowcode=zb&colcod
       "selcode":"last10","wdcode":"sj","wdname":"时间"}
     ]
 }
+
+说明：
+    当前程序还仅仅能爬取数据，然后清洗为可用格式（类似结构化存储的样式）。尚需要进一步完善的内容：
+    1、爬取部门和国际数据，因为是同形式。
+    2、爬取链接，下载Excel文件，并解析。
+    3、处理增量爬取过程。
+    4、处理不同爬虫存储不同集合问题。
+    5、处理爬取完成后自动清洗功能。
+    6、处理增量清洗功能。
+    7、爬取其他网页中的数据。
