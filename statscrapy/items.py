@@ -37,3 +37,7 @@ class ZbTtem(scrapy.Item):
     wdcode = scrapy.Field()
     urlnext = scrapy.Field()
     data = scrapy.Field()
+
+class DqItem(scrapy.Item):
+    dqdm = scrapy.Field()
+    dqmc = scrapy.Field()
